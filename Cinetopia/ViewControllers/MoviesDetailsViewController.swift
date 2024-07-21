@@ -11,6 +11,12 @@ class MoviesDetailsViewController: UIViewController {
     
     var movie: Movie
     
+    private lazy var movieScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     private lazy var movieTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +55,7 @@ class MoviesDetailsViewController: UIViewController {
         return label
     }()
     
-    private lazy var stackView: UIStackView = {
+    private lazy var movieStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [movieTitleLabel, moviePosterImageView, movieRateLabel, movieSynopsisLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -77,14 +83,21 @@ class MoviesDetailsViewController: UIViewController {
     }
     
     private func addSubviews() {
-        view.addSubview(stackView)
+        view.addSubview(movieScrollView)
+        movieScrollView.addSubview(movieStackView)
     }
     
     private func setupContraints() {
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            movieScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            movieScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            movieScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            movieScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            movieStackView.topAnchor.constraint(equalTo: movieScrollView.contentLayoutGuide.topAnchor),
+            movieStackView.bottomAnchor.constraint(equalTo: movieScrollView.contentLayoutGuide.bottomAnchor),
+            movieStackView.leadingAnchor.constraint(equalTo: movieScrollView.contentLayoutGuide.leadingAnchor),
+            movieStackView.trailingAnchor.constraint(equalTo: movieScrollView.contentLayoutGuide.trailingAnchor),
             
             movieTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             movieTitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),

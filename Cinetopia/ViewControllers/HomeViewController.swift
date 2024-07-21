@@ -70,16 +70,10 @@ class HomeViewController: UIViewController {
     
     private func addSubviews() {       
         view.addSubview(stackView)
-
-//        view.addSubview(logoImageView)
-//        view.addSubview(coupleImageView)
-//        view.addSubview(welcomeLabel)
-//        view.addSubview(welcomeButton)
     }
     
     private func setupContraints() {
         NSLayoutConstraint.activate([
-            
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -64),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -88,21 +82,6 @@ class HomeViewController: UIViewController {
             welcomeButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 64),
             welcomeButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -64),
             welcomeButton.heightAnchor.constraint(equalToConstant: 64),
-
-            /*
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32    ),
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            coupleImageView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 32),
-            coupleImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            welcomeLabel.topAnchor.constraint(equalTo: coupleImageView.bottomAnchor, constant: 32),
-            welcomeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            welcomeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            
-            welcomeButton.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 32),
-            
-*/
         ])
     }
 

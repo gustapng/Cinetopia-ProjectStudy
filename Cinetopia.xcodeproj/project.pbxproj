@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC064CDF2C4C1C2D00104629 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CDE2C4C1C2D00104629 /* Movie.swift */; };
+		EC064CE32C4C24EB00104629 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CE22C4C24EB00104629 /* MovieTableViewCell.swift */; };
+		EC064CE52C4C2EEE00104629 /* MoviesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CE42C4C2EEE00104629 /* MoviesDetailsViewController.swift */; };
 		EC1914B72C45FAC3002843AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1914B62C45FAC3002843AF /* AppDelegate.swift */; };
 		EC1914B92C45FAC3002843AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1914B82C45FAC3002843AF /* SceneDelegate.swift */; };
 		EC1914BB2C45FAC3002843AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1914BA2C45FAC3002843AF /* HomeViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC064CDE2C4C1C2D00104629 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		EC064CE22C4C24EB00104629 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		EC064CE42C4C2EEE00104629 /* MoviesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDetailsViewController.swift; sourceTree = "<group>"; };
 		EC1914B32C45FAC3002843AF /* Cinetopia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinetopia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1914B62C45FAC3002843AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC1914B82C45FAC3002843AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC064CDC2C4C1C0300104629 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC1914BA2C45FAC3002843AF /* HomeViewController.swift */,
+				EC6218232C49CFBC003CF055 /* MoviesViewController.swift */,
+				EC064CE42C4C2EEE00104629 /* MoviesDetailsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EC064CDD2C4C1C1800104629 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC064CDE2C4C1C2D00104629 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC064CE12C4C24C400104629 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EC064CE22C4C24EB00104629 /* MovieTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		EC1914AA2C45FAC3002843AF = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +88,11 @@
 		EC1914B52C45FAC3002843AF /* Cinetopia */ = {
 			isa = PBXGroup;
 			children = (
+				EC064CDC2C4C1C0300104629 /* ViewControllers */,
+				EC064CDD2C4C1C1800104629 /* Models */,
+				EC064CE12C4C24C400104629 /* Cells */,
 				EC1914B62C45FAC3002843AF /* AppDelegate.swift */,
 				EC1914B82C45FAC3002843AF /* SceneDelegate.swift */,
-				EC1914BA2C45FAC3002843AF /* HomeViewController.swift */,
-				EC6218232C49CFBC003CF055 /* MoviesViewController.swift */,
 				EC1914BF2C45FAC4002843AF /* Assets.xcassets */,
 				EC1914C12C45FAC4002843AF /* LaunchScreen.storyboard */,
 				EC1914C42C45FAC4002843AF /* Info.plist */,
@@ -139,8 +172,11 @@
 			files = (
 				EC1914BB2C45FAC3002843AF /* HomeViewController.swift in Sources */,
 				EC1914B72C45FAC3002843AF /* AppDelegate.swift in Sources */,
+				EC064CE32C4C24EB00104629 /* MovieTableViewCell.swift in Sources */,
+				EC064CE52C4C2EEE00104629 /* MoviesDetailsViewController.swift in Sources */,
 				EC1914B92C45FAC3002843AF /* SceneDelegate.swift in Sources */,
 				EC6218242C49CFBC003CF055 /* MoviesViewController.swift in Sources */,
+				EC064CDF2C4C1C2D00104629 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

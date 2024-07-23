@@ -11,6 +11,7 @@ class MoviesViewController: UIViewController {
     
     private var filteredMovies: [Movie] = []
     private var isSearchActive: Bool = false
+    private let movieService: MovieService = MovieService()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -38,6 +39,12 @@ class MoviesViewController: UIViewController {
         setupNavigationBar()
         addSubviews()
         setupContraints()
+        fetchMovies()
+    }
+    
+    private func fetchMovies() {
+        let movies = movieService.getMovies()
+        print(movies)
     }
     
     private func addSubviews() {
@@ -61,6 +68,9 @@ class MoviesViewController: UIViewController {
         ]
         navigationItem.setHidesBackButton(true, animated: true)
         navigationItem.titleView = searchBar
+        
+//  TODO - TESTAR CODIGO ABAIXO
+        
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
 //        view.addGestureRecognizer(tapGesture)
     }

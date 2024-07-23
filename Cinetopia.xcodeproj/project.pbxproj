@@ -16,6 +16,7 @@
 		EC1914C02C45FAC4002843AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC1914BF2C45FAC4002843AF /* Assets.xcassets */; };
 		EC1914C32C45FAC4002843AF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EC1914C22C45FAC4002843AF /* Base */; };
 		EC6218242C49CFBC003CF055 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6218232C49CFBC003CF055 /* MoviesViewController.swift */; };
+		ECFA844E2C4DCC480012D176 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFA844D2C4DCC480012D176 /* MovieService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EC1914C22C45FAC4002843AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC1914C42C45FAC4002843AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6218232C49CFBC003CF055 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		ECFA844D2C4DCC480012D176 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				EC064CDC2C4C1C0300104629 /* ViewControllers */,
 				EC064CDD2C4C1C1800104629 /* Models */,
 				EC064CE12C4C24C400104629 /* Cells */,
+				ECFA844C2C4DCC330012D176 /* Services */,
 				EC1914B62C45FAC3002843AF /* AppDelegate.swift */,
 				EC1914B82C45FAC3002843AF /* SceneDelegate.swift */,
 				EC1914BF2C45FAC4002843AF /* Assets.xcassets */,
@@ -98,6 +101,14 @@
 				EC1914C42C45FAC4002843AF /* Info.plist */,
 			);
 			path = Cinetopia;
+			sourceTree = "<group>";
+		};
+		ECFA844C2C4DCC330012D176 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				ECFA844D2C4DCC480012D176 /* MovieService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				EC064CE52C4C2EEE00104629 /* MoviesDetailsViewController.swift in Sources */,
 				EC1914B92C45FAC3002843AF /* SceneDelegate.swift in Sources */,
 				EC6218242C49CFBC003CF055 /* MoviesViewController.swift in Sources */,
+				ECFA844E2C4DCC480012D176 /* MovieService.swift in Sources */,
 				EC064CDF2C4C1C2D00104629 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -64,7 +64,6 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func buttonPressed() {
-        print("Botão pressioando")
         navigationController?.pushViewController(MoviesViewController(), animated: true)
     }
     

@@ -16,6 +16,7 @@
 		EC1914C02C45FAC4002843AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC1914BF2C45FAC4002843AF /* Assets.xcassets */; };
 		EC1914C32C45FAC4002843AF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EC1914C22C45FAC4002843AF /* Base */; };
 		EC6218242C49CFBC003CF055 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6218232C49CFBC003CF055 /* MoviesViewController.swift */; };
+		ECE317692C5689920008490E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = ECE317682C5689920008490E /* Kingfisher */; };
 		ECFA844E2C4DCC480012D176 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFA844D2C4DCC480012D176 /* MovieService.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE317692C5689920008490E /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +129,9 @@
 			dependencies = (
 			);
 			name = Cinetopia;
+			packageProductDependencies = (
+				ECE317682C5689920008490E /* Kingfisher */,
+			);
 			productName = Cinetopia;
 			productReference = EC1914B32C45FAC3002843AF /* Cinetopia.app */;
 			productType = "com.apple.product-type.application";
@@ -155,6 +160,9 @@
 				Base,
 			);
 			mainGroup = EC1914AA2C45FAC3002843AF;
+			packageReferences = (
+				ECE317672C5689920008490E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = EC1914B42C45FAC3002843AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -407,6 +415,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECE317672C5689920008490E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECE317682C5689920008490E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECE317672C5689920008490E /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC1914AB2C45FAC3002843AF /* Project object */;
 }

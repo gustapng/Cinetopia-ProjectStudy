@@ -30,6 +30,25 @@ class FavoriteMovieViewController: UIViewController {
         return imageView
     }()
     
+    private lazy var movieTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let iconImage = UIImage(systemName: "heart.fill")?.withTintColor(.buttonBackground, renderingMode: .alwaysOriginal)
+        button.setImage(iconImage, for: .normal)
+        button.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside)
+        return button
+    }()
+    
     //MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -46,6 +65,8 @@ class FavoriteMovieViewController: UIViewController {
     private func addSubviews() {
         view.addSubview(mainView)
         mainView.addSubview(moviePosterImageView)
+        mainView.addSubview(movieTitleLabel)
+        mainView.addSubview(favoriteButton)
     }
 
     private func setupContraints() {
@@ -60,12 +81,29 @@ class FavoriteMovieViewController: UIViewController {
             moviePosterImageView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
             moviePosterImageView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
             moviePosterImageView.heightAnchor.constraint(equalToConstant: 140),
+            
+            movieTitleLabel.topAnchor.constraint(equalTo: moviePosterImageView.bottomAnchor, constant: 12),
+            movieTitleLabel.leadingAnchor.constraint(equalTo: moviePosterImageView.leadingAnchor),
+            movieTitleLabel.trailingAnchor.constraint(equalTo: moviePosterImageView.trailingAnchor),
+
+            favoriteButton.topAnchor.constraint(equalTo: movieTitleLabel.bottomAnchor, constant: 7),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 25),
+            favoriteButton.widthAnchor.constraint(equalToConstant: 25),
+            favoriteButton.centerXAnchor.constraint(equalTo: mainView.centerXAnchor)
         ])
     }
     
     func setupView(_ movie: Movie) {
         let url = URL(string: movie.image)
         moviePosterImageView.kf.setImage(with: url)
+        
+        movieTitleLabel.text = movie.title
+    }
+    
+    // MARK: - IBAction
+    @objc
+    func didTapFavoriteButton(_ sender: UIButton) {
+        print("Did tap favorive button")
     }
 }
 

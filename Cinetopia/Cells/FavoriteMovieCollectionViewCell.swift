@@ -8,18 +8,9 @@
 import UIKit
 import Kingfisher
 
-class FavoriteMovieViewController: UIViewController {
-    
-    let movie = Movie(id: "1", title: "Interstellar", image: "https://github.com/alura-cursos/movie-api/blob/main/images/avatar.jpg?raw=true", synopsis: "Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se comunicar com ela. Pai e filha descobrem que o \"fantasma\" é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional, deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand.", rate: 9.4, releaseDate: "06/11/2024")
+class FavoriteMovieCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
-    
-    private let mainView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        return view
-    }()
     
     private lazy var moviePosterImageView: UIImageView = {
         let imageView = UIImageView()
@@ -33,10 +24,10 @@ class FavoriteMovieViewController: UIViewController {
     private lazy var movieTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 18, weight: .medium)
-        label.textColor = .black
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textColor = .white
         label.textAlignment = .center
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         return label
     }()
     
@@ -50,36 +41,30 @@ class FavoriteMovieViewController: UIViewController {
     }()
     
     //MARK: - View life cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = .lightGray
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         addSubviews()
         setupContraints()
-        setupView(movie)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: - Class methods
     
     private func addSubviews() {
-        view.addSubview(mainView)
-        mainView.addSubview(moviePosterImageView)
-        mainView.addSubview(movieTitleLabel)
-        mainView.addSubview(favoriteButton)
+        addSubview(moviePosterImageView)
+        addSubview(movieTitleLabel)
+        addSubview(favoriteButton)
     }
 
     private func setupContraints() {
-        mainView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        mainView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        mainView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        mainView.widthAnchor.constraint(equalToConstant: 115).isActive = true
-        
-        //UTILIZANDO OUTRA MANEIRA DE DEFINIR CONSTRAINTS PARA FINS DE ESTUDO
         NSLayoutConstraint.activate([
-            moviePosterImageView.topAnchor.constraint(equalTo: mainView.topAnchor),
-            moviePosterImageView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor),
-            moviePosterImageView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor),
+            moviePosterImageView.topAnchor.constraint(equalTo: topAnchor),
+            moviePosterImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            moviePosterImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             moviePosterImageView.heightAnchor.constraint(equalToConstant: 140),
             
             movieTitleLabel.topAnchor.constraint(equalTo: moviePosterImageView.bottomAnchor, constant: 12),
@@ -89,7 +74,7 @@ class FavoriteMovieViewController: UIViewController {
             favoriteButton.topAnchor.constraint(equalTo: movieTitleLabel.bottomAnchor, constant: 7),
             favoriteButton.heightAnchor.constraint(equalToConstant: 25),
             favoriteButton.widthAnchor.constraint(equalToConstant: 25),
-            favoriteButton.centerXAnchor.constraint(equalTo: mainView.centerXAnchor)
+            favoriteButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     
@@ -105,8 +90,4 @@ class FavoriteMovieViewController: UIViewController {
     func didTapFavoriteButton(_ sender: UIButton) {
         print("Did tap favorive button")
     }
-}
-
-#Preview {
-    FavoriteMovieViewController()
 }

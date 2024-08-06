@@ -12,7 +12,7 @@ class MovieManager {
     // MARK: - Attributes
     
     static let shared = MovieManager()
-    var favoriteMovies: [Movie] = []
+    var favoritesMovies: [Movie] = []
     
     // MARK: - Init
     
@@ -21,16 +21,16 @@ class MovieManager {
     // MARK: - Class methods
     
     func add(_ movie: Movie) {
-        if favoriteMovies.contains(where: { $0.id == movie.id}) {
+        if favoritesMovies.contains(where: { $0.id == movie.id}) {
             remove(movie)
         } else {
-            favoriteMovies.append(movie)
+            favoritesMovies.append(movie)
         }
     }
     
     func remove(_ movie: Movie) {
-        if let index = favoriteMovies.firstIndex(where: {$0.id == movie.id}) {
-            favoriteMovies.remove(at: index)
+        if let index = favoritesMovies.firstIndex(where: {$0.id == movie.id}) {
+            favoritesMovies.remove(at: index)
         }
     }
 }

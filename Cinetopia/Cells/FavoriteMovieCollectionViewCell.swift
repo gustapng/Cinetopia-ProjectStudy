@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol FavoriteMovieCollectionViewCellDeletate: AnyObject {
+    func didSelectFavoriteButton(_ sender: UIButton)
+}
+
 class FavoriteMovieCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
@@ -39,6 +43,8 @@ class FavoriteMovieCollectionViewCell: UICollectionViewCell {
         button.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside)
         return button
     }()
+    
+    weak var delegate: FavoriteMovieCollectionViewCellDeletate?
     
     //MARK: - View life cycle
     
@@ -88,6 +94,6 @@ class FavoriteMovieCollectionViewCell: UICollectionViewCell {
     // MARK: - IBAction
     @objc
     func didTapFavoriteButton(_ sender: UIButton) {
-        print("Did tap favorive button")
+        delegate?.didSelectFavoriteButton(sender)
     }
 }

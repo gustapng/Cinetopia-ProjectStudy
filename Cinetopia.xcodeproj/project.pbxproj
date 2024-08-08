@@ -11,6 +11,7 @@
 		EC064CE32C4C24EB00104629 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CE22C4C24EB00104629 /* MovieTableViewCell.swift */; };
 		EC064CE52C4C2EEE00104629 /* MoviesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC064CE42C4C2EEE00104629 /* MoviesDetailsViewController.swift */; };
 		EC066B5C2C62E8EE00C8E8D4 /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC066B5B2C62E8EE00C8E8D4 /* MoviesView.swift */; };
+		EC18FFCF2C6575D6003E684C /* MoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC18FFCE2C6575D6003E684C /* MoviesPresenter.swift */; };
 		EC1914B72C45FAC3002843AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1914B62C45FAC3002843AF /* AppDelegate.swift */; };
 		EC1914B92C45FAC3002843AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1914B82C45FAC3002843AF /* SceneDelegate.swift */; };
 		EC1914BB2C45FAC3002843AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1914BA2C45FAC3002843AF /* HomeViewController.swift */; };
@@ -31,6 +32,7 @@
 		EC064CE22C4C24EB00104629 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		EC064CE42C4C2EEE00104629 /* MoviesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDetailsViewController.swift; sourceTree = "<group>"; };
 		EC066B5B2C62E8EE00C8E8D4 /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
+		EC18FFCE2C6575D6003E684C /* MoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPresenter.swift; sourceTree = "<group>"; };
 		EC1914B32C45FAC3002843AF /* Cinetopia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinetopia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1914B62C45FAC3002843AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC1914B82C45FAC3002843AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 			path = Movies;
 			sourceTree = "<group>";
 		};
+		EC18FFCD2C6575A1003E684C /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				EC18FFCE2C6575D6003E684C /* MoviesPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		EC1914AA2C45FAC3002843AF = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +128,11 @@
 		EC1914B52C45FAC3002843AF /* Cinetopia */ = {
 			isa = PBXGroup;
 			children = (
-				EC064CDC2C4C1C0300104629 /* Views */,
-				EC064CDD2C4C1C1800104629 /* Models */,
-				EC064CE12C4C24C400104629 /* Cells */,
 				ECFA844C2C4DCC330012D176 /* Services */,
+				EC064CE12C4C24C400104629 /* Cells */,
+				EC064CDD2C4C1C1800104629 /* Models */,
+				EC064CDC2C4C1C0300104629 /* Views */,
+				EC18FFCD2C6575A1003E684C /* Presenters */,
 				EC1914B62C45FAC3002843AF /* AppDelegate.swift */,
 				EC1914B82C45FAC3002843AF /* SceneDelegate.swift */,
 				EC1914BF2C45FAC4002843AF /* Assets.xcassets */,
@@ -229,6 +240,7 @@
 				EC066B5C2C62E8EE00C8E8D4 /* MoviesView.swift in Sources */,
 				ECFA844E2C4DCC480012D176 /* MovieService.swift in Sources */,
 				EC064CDF2C4C1C2D00104629 /* Movie.swift in Sources */,
+				EC18FFCF2C6575D6003E684C /* MoviesPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

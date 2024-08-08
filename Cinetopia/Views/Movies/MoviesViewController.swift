@@ -7,14 +7,25 @@
 
 import UIKit
 
+protocol MoviesViewControllerToPresenterProtocol: AnyObject {
+    func didSelectMovie(_ movie: Movie)
+}
+
 class MoviesViewController: UIViewController {
     
-    private let movieService: MovieService = MovieService()
+    private var presenter: MoviesPresenterToViewControllerProtocol?
     
-    private lazy var mainView: MoviesView = {
-        let mainView = MoviesView()
-        return mainView
-    }()
+    private var mainView: MoviesView?
+    
+    init(view: MoviesView, presenter: MoviesPresenterToViewControllerProtocol) {
+        super.init(nibName: "", bundle: nil)
+        self.mainView = view
+        self.presenter = presenter
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = mainView
@@ -22,24 +33,13 @@ class MoviesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.viewDidLoad()
         setupNavigationBar()
-        Task {
-            await fetchMovies()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.reloadData()
-    }
-    
-    private func fetchMovies() async {
-        do {
-            let movies = try await movieService.getMovies()
-            tableView.reloadData()
-        } catch (let error) {
-            print(error)
-        }
+        presenter?.viewDidAppear()
     }
     
     private func setupNavigationBar() {
@@ -49,11 +49,12 @@ class MoviesViewController: UIViewController {
             NSAttributedString.Key.foregroundColor : UIColor.white
         ]
         navigationItem.setHidesBackButton(true, animated: true)
-        navigationItem.titleView = mainView.searchBar
+        navigationItem.titleView = mainView?.searchBar
     }
-    
-    extension MoviesViewController: UISearchBarDelegate {
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+}
+
+extension MoviesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //            if searchText.isEmpty {
 //                isSearchActive = false
 //            } else {
@@ -63,10 +64,16 @@ class MoviesViewController: UIViewController {
 //                })
 //            }
 //            tableView.reloadData()
-        }
-        
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            searchBar.resignFirstResponder()
-        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension MoviesViewController: MoviesViewControllerToPresenterProtocol {
+    func didSelectMovie(_ movie: Movie) {
+        let detailsVC = MoviesDetailsViewController(movie: movie)
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

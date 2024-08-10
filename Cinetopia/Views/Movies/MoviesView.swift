@@ -11,7 +11,6 @@ protocol MoviesViewProtocol: AnyObject {
     func setPresenter(_ presenter: MoviesPresenterToViewProtocol)
     func setupView(with movies: [Movie])
     func reloadData()
-    func navigateToMovieDetails(movie: Movie)
     func reloadRow(at IndexPath: IndexPath)
     func toggle(_ isActive: Bool)
 }
@@ -43,7 +42,7 @@ class MoviesView: UIView {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = "Pesquisar"
         searchBar.searchTextField.backgroundColor = .white
-//        searchBar.delegate = self
+        searchBar.delegate = self
         return searchBar
     }()
     
@@ -115,9 +114,7 @@ extension MoviesView: MovieTableViewCellDelegate {
         }
         
         let selectedMovie = movies[indexPath.row]
-        selectedMovie.changeSelectionStatus()
-        
-        MovieManager.shared.add(selectedMovie)
+        presenter?.didSelectFavoriteButton(selectedMovie)
         reloadRow(at: indexPath)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
@@ -138,15 +135,22 @@ extension MoviesView: MoviesViewProtocol {
         }
     }
     
-    func navigateToMovieDetails(movie: Movie) {
-        
-    }
-    
     func reloadRow(at IndexPath: IndexPath) {
         tableView.reloadRows(at: [IndexPath], with: .automatic)
     }
     
     func toggle(_ isActive: Bool) {
         self.isSearchActive = isActive
+    }
+}
+
+extension MoviesView: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter?.didSearchText(searchBar, textDidChange: searchText, movies, &filteredMovies)
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
